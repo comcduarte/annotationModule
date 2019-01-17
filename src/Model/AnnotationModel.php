@@ -5,6 +5,9 @@ use Midnet\Model\DatabaseObject;
 
 class AnnotationModel extends DatabaseObject
 {
+    const INACTIVE_STATUS = 0;
+    const ACTIVE_STATUS = 1;
+    
     public $UUID;
     public $TABLENAME;
     public $PRIKEY;

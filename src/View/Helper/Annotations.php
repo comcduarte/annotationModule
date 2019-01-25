@@ -99,7 +99,7 @@ class Annotations extends AbstractHelper
         	</div>
         </div>
         
-    	<a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm">Add Annotation</a>
+    	<a href="" class="btn btn-primary btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm">Add Annotation</a>
 		<?php 
     }
 }

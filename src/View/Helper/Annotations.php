@@ -16,7 +16,14 @@ class Annotations extends AbstractHelper
     
     public function render()
     {
-        $result  = '<h3>Annotations</h3>';
+        $result  = '<div class="container">';
+        $result .= '<div class="row">';
+        $result .= '<div class="col">';
+        $result .= '<h3>Annotations</h3>';
+        $result .= '</div>';
+        $result .= '<div class="d-flex justify-content-end">';
+        $result .= '<a href="" class="btn btn-primary btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm">Add Annotation</a>';
+        $result .= '</div></div></div>';
         $result .= $this->renderAddAnnotationForm();
         $result .= '<table class="table table-sm table-striped">';
         $result .= '<thead>';
@@ -99,7 +106,7 @@ class Annotations extends AbstractHelper
         	</div>
         </div>
         
-    	<a href="" class="btn btn-primary btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm">Add Annotation</a>
+    	
 		<?php 
     }
 }

@@ -52,7 +52,7 @@ return [
     ],
     'service_manager' => [
         'aliases' => [
-            'annotation-model-primary-adapter-config' => 'dog-model-primary-adapter-config',
+            'annotation-model-primary-adapter-config' => 'model-primary-adapter-config',
         ],
     ],
     'view_helpers' => [

@@ -7,6 +7,8 @@ use Zend\Router\Http\Literal;
 use Annotation\Controller\AnnotationController;
 use Zend\Router\Http\Segment;
 use Annotation\Controller\Factory\AnnotationControllerFactory;
+use Annotation\Controller\AnnotationConfigController;
+use Annotation\Controller\Factory\AnnotationConfigControllerFactory;
 
 return [
     'router' => [
@@ -32,6 +34,28 @@ return [
                             ],
                         ],
                     ],
+                    'config' => [
+                        'type' => Segment::class,
+                        'priority' => 100,
+                        'options' => [
+                            'route' => '/config[/:action]',
+                            'defaults' => [
+                                'action' => 'index',
+                                'controller' => AnnotationConfigController::class,
+                            ],
+                        ],
+                    ],
+                    'default' => [
+                        'type' => Segment::class,
+                        'priority' => -100,
+                        'options' => [
+                            'route' => '/[:action[/:uuid]]',
+                            'defaults' => [
+                                'action' => 'index',
+                                'controller' => AnnotationController::class,
+                            ],
+                        ],
+                    ],
                 ],
             ],
         ],
@@ -43,11 +67,29 @@ return [
         'member' => [
             'annotation' => ['index'],
             'annotation/annotation' => ['index', 'create', 'update', 'delete'],
+            'annotation/config' => ['index','clear','create'],
         ],
     ],
     'controllers' => [
         'factories' => [
+            AnnotationConfigController::class => AnnotationConfigControllerFactory::class,
             AnnotationController::class => AnnotationControllerFactory::class,
+        ],
+    ],
+    'navigation' => [
+        'default' => [
+            'settings' => [
+                'label' => 'Settings',
+                'route' => 'home',
+                'class' => 'dropdown',
+                'pages' => [
+                    'annotations' => [
+                        'label' => 'Annotation Settings',
+                        'route' => 'annotation/config',
+                        'action' => 'index',
+                    ],
+                ],
+            ],
         ],
     ],
     'service_manager' => [
